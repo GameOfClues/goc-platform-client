@@ -1,0 +1,47 @@
+<div class="pagetitle">
+  <h1>Потребители</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']">Начало</a></li>
+      <li class="breadcrumb-item">Администрация</li>
+      <li class="breadcrumb-item active">Потребители</li>
+    </ol>
+  </nav>
+</div>
+
+<div class="section">
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <a type="button" class="btn btn-success mb-3 mt-3" [routerLink]="['add']">Добави</a>
+
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Име</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Имейл</th>
+            <th scope="col">Тел. номер</th>
+            <th scope="col">Действия</th>
+          </tr>
+          </thead>
+          <tbody>
+          @for (user of users; track user.firstName) {
+          <tr>
+            <th scope="row">{{ user._id }}</th>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phoneNumber }}</td>
+            <td>Отвори</td>
+          </tr>
+          } @empty {
+          <li>Не съществуват потребители в платформата.</li>
+          }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

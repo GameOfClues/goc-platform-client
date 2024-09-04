@@ -1,0 +1,65 @@
+<div class="pagetitle">
+  <h1>Добавяне на потребител</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']">Начало</a></li>
+      <li class="breadcrumb-item">Администрация</li>
+      <li class="breadcrumb-item"><a [routerLink]="['/administration/users']">Потребители</a></li>
+      <li class="breadcrumb-item active">Добави</li>
+    </ol>
+  </nav>
+</div><!-- End Page Title -->
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <form class="row g-3 mt-3" [formGroup]="createUserForm" (ngSubmit)="createUser()">
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" [ngClass]="{'form-control-error': firstName?.invalid && firstName?.touched}" id="name" placeholder="Име" formControlName="firstName">
+                <label for="name" class="text-primary-color">Име</label>
+                <div class="form-validation-error" *ngIf="firstName?.touched && firstName?.errors?.['required']">Полето е задължително.</div>
+                <div class="form-validation-error" *ngIf="firstName?.touched && firstName?.errors?.['minlength']">Въведете поне 2 символа.</div>
+                <div class="form-validation-error" *ngIf="firstName?.touched && firstName?.errors?.['maxlength']">Въведете не повече от 50 символа.</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" [ngClass]="{'form-control-error': lastName?.invalid && lastName?.touched}" id="lastName" placeholder="Фамилия" formControlName="lastName">
+                <label for="lastName" class="text-primary-color">Фамилия</label>
+                <div class="form-validation-error" *ngIf="lastName?.touched && lastName?.errors?.['required']">Полето е задължително.</div>
+                <div class="form-validation-error" *ngIf="lastName?.touched && lastName?.errors?.['minlength']">Въведете поне 2 символа.</div>
+                <div class="form-validation-error" *ngIf="lastName?.touched && lastName?.errors?.['maxlength']">Въведете не повече от 50 символа.</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="email" class="form-control" [ngClass]="{'form-control-error': email?.invalid && email?.touched}" id="email" placeholder="Имейл" formControlName="email">
+                <label for="email" class="text-primary-color">Имейл</label>
+                <div class="form-validation-error" *ngIf="email?.touched && email?.errors?.['required']">Полето е задължително.</div>
+                <div class="form-validation-error" *ngIf="email?.touched && email?.errors?.['email']">Въведете валиден имейл.</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="tel" class="form-control" [ngClass]="{'form-control-error': phoneNumber?.invalid && phoneNumber?.touched}" id="phoneNumber" placeholder="Телефонен номер" formControlName="phoneNumber">
+                <label for="phoneNumber" class="text-primary-color">Телефонен номер</label>
+                <div class="form-validation-error" *ngIf="phoneNumber?.touched && phoneNumber?.errors?.['required']">Полето е задължително.</div>
+                <div class="form-validation-error" *ngIf="phoneNumber?.touched && phoneNumber?.errors?.['minlength']">Въведете поне 2 символа.</div>
+                <div class="form-validation-error" *ngIf="phoneNumber?.touched && phoneNumber?.errors?.['maxlength']">Въведете не повече от 50 символа.</div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center gap-3">
+              <button type="submit" class="btn btn-success">Добави</button>
+              <a [routerLink]="['/administration/users']" class="btn btn-secondary">Откажи</a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -8,10 +8,12 @@ import {RouterModule} from "@angular/router";
 import {AuthService} from "./services/auth.service";
 import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
 import {ReactiveFormsModule} from "@angular/forms";
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

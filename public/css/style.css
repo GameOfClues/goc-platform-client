@@ -1058,7 +1058,7 @@ h6 {
 }
 
 .faq .basic p {
-  color: #6980aa;
+  color: #444444;
 }
 
 /*--------------------------------------------------------------
@@ -1329,6 +1329,15 @@ h6 {
 .form-validation-error {
   padding: 4px 12px;
   color: #E74C3C;
+}
+
+.text-error {
+  color: #E74C3C;
+}
+
+.btn-error {
+  background-color: #E74C3C;
+  color: #fff;
 }
 
 /* General toast styling */

@@ -6,7 +6,7 @@
       <li class="breadcrumb-item active">ЧЗВ</li>
     </ol>
   </nav>
-</div><!-- End Page Title -->
+</div>
 
 <section class="section faq">
   <div class="row">
@@ -15,20 +15,36 @@
         <div class="card-body">
           <a type="button" class="btn btn-success mb-3 mt-3" [routerLink]="['add']">Добави</a>
 
-          <div class="pt-2">
-            <h6 class="text-secondary-color">1. Nisi ut ut exercitationem voluptatem esse sunt rerum?</h6>
-            <p class="text-secondary">Saepe perspiciatis ea. Incidunt blanditiis enim mollitia qui voluptates. Id rem nulla tenetur nihil in unde rerum. Quae consequatur placeat qui cumque earum eius omnis quos.</p>
-          </div>
-
-          <div class="pt-2">
-            <h6 class="text-secondary-color">2. Reiciendis dolores repudiandae?</h6>
-            <p class="text-secondary">Id ipsam non ut. Placeat doloremque deserunt quia tenetur inventore laboriosam dolores totam odio. Aperiam incidunt et. Totam ut quos sunt atque modi molestiae dolorem.</p>
-          </div>
-
-          <div class="pt-2">
-            <h6 class="text-secondary-color">3. Qui qui reprehenderit ut est illo numquam voluptatem?</h6>
-            <p class="text-secondary">Enim inventoe i consequuntur ipsam voluptatem consequatur beatae. Nostrum consequuntur voluptates et blanditiis.</p>
-          </div>
+          @for (faq of faqs; track faq._id) {
+            <div class="pt-2">
+              <div class="faq-question">
+                <h6 class="text-secondary-color">{{ $index + 1 }}. {{ faq.question }}</h6>
+                <i (click)="updateFaq(faq._id)" class="bi bi-pen-fill text-secondary-color cursor-pointer"></i>
+                <i class="bi bi-trash3-fill text-error cursor-pointer" data-bs-toggle="modal" data-bs-target="#verticalycentered"></i>
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="verticalycentered" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title text-secondary-color" id="modalLabel">Премахване на ЧЗВ</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-secondary">
+                      Сигурни ли сте, че искате да продължите с премахването на този ЧЗВ. Това действие е необратимо.
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отказ</button>
+                      <button type="button" class="btn btn-error" (click)="deleteFaq(faq._id)">Изтрий</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="text-secondary">{{ faq.answer }}</p>
+            </div>
+          } @empty {
+            <p>Не съществуват ЧЗВ в платформата.</p>
+          }
         </div>
       </div>
     </div>

@@ -7,6 +7,8 @@ import {FaqComponent} from "./components/faq/faq.component";
 import {DashboardComponent} from "../home/components/dashboard/dashboard.component";
 import {MessagesComponent} from "../home/components/messages/messages.component";
 import {AuthGuardService} from "../../core/guards/auth-guard.service";
+import {AddFaqComponent} from "./components/add-faq/add-faq.component";
+import {UpdateFaqComponent} from "./components/update-faq/update-faq.component";
 
 const routes: Routes = [
   {
@@ -32,6 +34,14 @@ const routes: Routes = [
       {
         path: 'faq',
         component: FaqComponent
+      },
+      {
+        path: 'faq/add',
+        component: AddFaqComponent
+      },
+      {
+        path: 'faq/update',
+        component: UpdateFaqComponent
       }
     ]
   }

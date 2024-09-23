@@ -5,12 +5,14 @@ import { HomeRoutingModule } from './home-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {RouterModule} from "@angular/router";
 import { MessagesComponent } from './components/messages/messages.component';
+import { IndexComponent } from './components/index/index.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    MessagesComponent
+    MessagesComponent,
+    IndexComponent
   ],
   imports: [
     CommonModule,

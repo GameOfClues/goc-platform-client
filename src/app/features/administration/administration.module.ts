@@ -8,13 +8,17 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {AdministrationService} from "./services/administration.service";
 import { FaqComponent } from './components/faq/faq.component';
+import { AddFaqComponent } from './components/add-faq/add-faq.component';
+import { UpdateFaqComponent } from './components/update-faq/update-faq.component';
 
 
 @NgModule({
   declarations: [
     UsersComponent,
     AddUserComponent,
-    FaqComponent
+    FaqComponent,
+    AddFaqComponent,
+    UpdateFaqComponent
   ],
   imports: [
     CommonModule,
